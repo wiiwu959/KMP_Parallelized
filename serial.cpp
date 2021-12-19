@@ -30,7 +30,7 @@ int main(int argc, char **argv)
     strcpy(target, target_string.c_str());
     strcpy(pattern, pattern_string.c_str());
 
-    int *failure = new int[target_length];
+    int *failure = new int[pattern_length];
     int *answer = new int[target_length]();
 
     preKMP(pattern, failure);
@@ -47,11 +47,18 @@ int main(int argc, char **argv)
     elapsed_time = (end.tv_sec - start.tv_sec) * 1e3 + (end.tv_nsec - start.tv_nsec) / 1e6;
     cout << "When the target length is " << target_length << ", pattern length is " << pattern_length << ", the elapsed time is " << elapsed_time << " ms." << endl;
 
+    int counter = 0;
+
     for (int i = 0; i < target_length; i++)
     {
         if (answer[i])
+        {
             cout << "Find a matching substring starting at: " << i << "." << endl;
+            counter++;
+        }
     }
+
+    cout << counter << endl;
 
     delete[] target;
     delete[] pattern;
@@ -63,7 +70,7 @@ int main(int argc, char **argv)
 
 void KMP(char *target, char *pattern, int *failure, int *answer, int pattern_length, int target_length)
 {
-    int i = 0, j = target_length - 1;
+    int i = 0, j = target_length;
 
     int k = 0;
     while (i < j)
@@ -80,6 +87,7 @@ void KMP(char *target, char *pattern, int *failure, int *answer, int pattern_len
 
             if (k == pattern_length)
             {
+                k--;
                 answer[i - pattern_length] = 1;
                 i = i - pattern_length + 1;
             }
@@ -112,4 +120,6 @@ void preKMP(char *pattern, int failure[])
 
         failure[i] = k + 1;
     }
+
+    return;
 }
