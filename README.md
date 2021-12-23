@@ -7,7 +7,7 @@
 * This is the repository for the final Project in NYCU CS Parallel Programming(PP) fall 2021 class.
 * We are going to implement parallelization of KMP String Matching Algorithm on different parallel architectures.
 * Our Implementation is based on <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.258.8768&rep=rep1&type=pdf">
-Akhtar Rasool and Nilay Khare Parallelization of KMP String Matching Algorithm on Different SIMD architectures-Multi-Core and GPGPU", International Journal of Computer Applications, pp. 26-28, 2012. </a>.
+Akhtar Rasool and Nilay Khare, "Parallelization of KMP String Matching Algorithm on Different SIMD architectures-Multi-Core and GPGPU", International Journal of Computer Applications, pp. 26-28, 2012. </a>.
 * We will also evaluate and compare performance of different parallel architecture shown in our report.
 
 
