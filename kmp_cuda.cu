@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 
     cudaMalloc((void **)&device_target, target_length * sizeof(char));
     cudaMalloc((void **)&device_pattern, pattern_length * sizeof(char));
-    cudaMalloc((void **)&device_failure, target_length * sizeof(int));
+    cudaMalloc((void **)&device_failure, pattern_length * sizeof(int));
     cudaMalloc((void **)&device_answer, target_length * sizeof(int));
 
     cudaMemcpy(device_target, target, target_length * sizeof(char), cudaMemcpyHostToDevice);
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
 
     cudaMemcpy(answer, device_answer, target_length * sizeof(int), cudaMemcpyDeviceToHost);
 
-    cout << "----- This is parallel results using KMP Algorithm on CUDA. -----" << endl;
+    cout << "----- This is CUDA results using KMP Algorithm. -----" << endl;
     cout << "When the target length is " << target_length << ", pattern length is " << pattern_length << ", the elapsed time is " << elapsed_time << " ms." << endl;
 
     int counter = 0;
@@ -172,7 +172,7 @@ int main(int argc, char *argv[])
     {
         if (answer[i])
         {
-            cout << "Find a matching substring starting at: " << i << "." << endl;
+            // cout << "Find a matching substring starting at: " << i << "." << endl;
             counter++;
         }
     }

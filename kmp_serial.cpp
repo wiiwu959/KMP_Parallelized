@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     {
         if (answer[i])
         {
-            cout << "Find a matching substring starting at: " << i << "." << endl;
+            // cout << "Find a matching substring starting at: " << i << "." << endl;
             counter++;
         }
     }
